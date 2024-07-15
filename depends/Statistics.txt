@@ -1,0 +1,26 @@
+The Science of Learning (Optional)
+Types of Data
+Organising Data
+Linear Interpolation
+Descriptive Statistics - Introduction
+Measures of Central Location
+Measures of Spread - The Interquartile Range
+Measures of Spread - The Interpercentile Range
+Outliers and Standard Deviation
+Coding
+Box Plots and Cumulative Frequency Diagrams
+Histograms and Frequency Polygons
+Sampling
+Correlation
+Probability Basics
+Venn Diagrams
+Multiple Actions
+Unequal Outcomes
+Relative Frequency
+Advanced Venn Diagrams and Dependency
+Basic Probability Distributions
+Binomial Distribution
+Cumulative Distributions
+Continuous Random Variables
+Hypothesis Testing
+The Large Data Set
