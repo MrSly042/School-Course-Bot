@@ -1,14 +1,22 @@
+import os
 import time
 import tkinter as tk
+import threading
 from tkinter import messagebox
 from selenium import webdriver
+from selenium.webdriver.edge.service import Service
 from selenium.webdriver.common.by import By
 from pushbullet import API
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from tkinter.ttk import Button as ttk_but
+from dotenv import load_dotenv
 from PIL import ImageTk
-import threading
+
+load_dotenv("depends\conf.env")
+API_KEY = os.getenv("API_KEY")
+PASSW = os.getenv("PASSWORD")
+USER = os.getenv("USER")
 
 class Kaeto(tk.Tk):
     def __init__(self):
@@ -157,22 +165,14 @@ class Kaeto(tk.Tk):
         obj = self.winfo_children()
 
     def main(self, subject, subtopic, should_scroll):
-        new = []
-
-        file = open("depends/password.txt", 'r')
-        new = file.read()
-        new = new.split('\n')
-
-        file.close()
-
-        #push api details
-        api_key = new[2]
         api = API()
-        api.set_token(api_key)
+        api.set_token(API_KEY)
 
         url = "https://web.uplearn.co.uk/login?" 
 
-        driver = webdriver.Edge()
+        service = Service("depends/msedgedriver.exe")
+        driver = webdriver.Edge(service=service)
+
         driver.get(url)
         wait = WebDriverWait(driver, 17)
 
@@ -204,10 +204,10 @@ class Kaeto(tk.Tk):
             pass
 
         enter_email = get_find("name", "email")
-        enter_email.send_keys(new[0])
+        enter_email.send_keys(USER)
 
         enter_password = get_find("name", "password")
-        enter_password.send_keys(new[1])
+        enter_password.send_keys(PASSW)
         enter_password.submit()
         time.sleep(2)
         driver.maximize_window()
